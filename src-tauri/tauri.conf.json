@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "TEF Bridge",
+  "identifier": "com.pharma.tefbridge",
+  "version": "1.0.0",
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run start",
+    "frontendDist": "../dist/front-tef-bridge/browser",
+    "devUrl": "http://localhost:4200"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "TEF Bridge - Configuracao",
+        "width": 500,
+        "height": 700,
+        "resizable": false,
+        "center": true,
+        "decorations": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:* http://127.0.0.1:*; img-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/icon.png"
+    ],
+    "resources": {
+      "resources/tef-bridge.jar": "tef-bridge.jar",
+      "resources/jre": "jre"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    }
+  }
+}

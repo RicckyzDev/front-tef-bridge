@@ -1,0 +1,19 @@
+[package]
+name = "tef-bridge"
+version = "1.0.0"
+description = "TEF Bridge - Integracao TEF para PDV Web"
+authors = ["Pharma Software"]
+edition = "2021"
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+[dependencies]
+tauri = { version = "2.0", features = [] }
+tauri-plugin-shell = "2.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
